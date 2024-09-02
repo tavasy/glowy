@@ -2,8 +2,60 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import CategoryCard from '../components/CategoryCard';
 import Footer from '../components/Footer';
+import laneige from '../images/laneige.png';
+import amika from '../images/amika.png';
+import colorwow from '../images/colorwow.png';
+import cosrx from '../images/cosrx.png';
+import keys from '../images/keys.png';
+import nars from '../images/nars.png';
+import olaplex from '../images/olaplex.png';
 
 function Home() {
+  const [trendingProducts] = useState([
+    {
+      brand: 'NARS',
+      title: 'Powder Blush',
+      image: nars,
+      link: 'https://www.narscosmetics.com',
+    },
+    {
+      brand: 'Amika',
+      title: 'Perk Up Dry Shampoo',
+      image: amika,
+      link: 'https://www.loveamika.com',
+    },
+    {
+      brand: 'Color Wow',
+      title: 'Dream Coat Anti-Humidity Hair Spray',
+      image: colorwow,
+      link: 'https://www.colorwowhair.com',
+    },
+    {
+      brand: 'Cosrx',
+      title: 'Snail Mucin 96% Power Repairing Essence',
+      image: cosrx,
+      link: 'https://www.cosrx.com',
+    },
+    {
+      brand: 'Keys Soulcare',
+      title: 'Squalane Facial Oil',
+      image: keys,
+      link: 'https://www.cosrx.com',
+    },
+    {
+      brand: 'Laneige',
+      title: 'Lip Sleeping Mask',
+      image: laneige,
+      link: 'https://www.laneige.com',
+    },
+    {
+      brand: 'Olaplex',
+      title: 'No.7 Bonding Oil',
+      image: olaplex,
+      link: 'https://www.olaplex.com',
+    },
+  ]);
+
   return (
     <div className="container">
       <Navbar />
@@ -39,23 +91,16 @@ function Home() {
       </div>
       <div className="container-trending-products">
         <h2>Trending products</h2>
-        <p className="categories-title">Skincare</p>
         <div className="categories-cards">
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-        </div>
-        <p className="categories-title">Haircare</p>
-        <div className="categories-cards">
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-        </div>
-        <p className="categories-title">Makeup</p>
-        <div className="categories-cards">
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
+          {trendingProducts.map((product, index) => (
+            <CategoryCard
+              key={index}
+              brand={product.brand}
+              title={product.title}
+              image={product.image}
+              link={product.link}
+            />
+          ))}
         </div>
       </div>
       <Footer />

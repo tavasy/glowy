@@ -1,17 +1,20 @@
 import React from 'react';
-import corsx from '../images/cosrx.webp';
 
-function CategoryCard() {
+const CategoryCard = ({ brand, title, image, link }) => {
   return (
     <div className="card">
       <div className="image">
-        <img src={corsx} className="image-product" />
+        <div className="image-wrapper">
+          <img src={image} alt={title} className="image-product" />
+        </div>
       </div>
-      <p className="brand">Cosrx</p>
-      <p className="title">All-in-one cream</p>
-      <button className="buy-button">Buy</button>
+      <p className="brand">{brand}</p>
+      <p className="title">{title}</p>
+      <a href={link} target="_blank" rel="noopener noreferrer">
+        <button className="buy-button">Buy</button>
+      </a>
     </div>
   );
-}
+};
 
 export default CategoryCard;
