@@ -1,15 +1,31 @@
 import React, { useState, useRef, useEffect } from 'react';
 import CategoryCard from '../components/CategoryCard';
+import feather from 'feather-icons';
 
 const Carousel = ({ trendingProducts }) => {
   const cardsRef = useRef(null);
   const [cardWidth, setCardWidth] = useState(300);
+  const [isAtStart, setIsAtStart] = useState(true);
+  const [isAtEnd, setIsAtEnd] = useState(false);
+
+  useEffect(() => {
+    feather.replace();
+  }, []);
 
   useEffect(() => {
     if (cardsRef.current && cardsRef.current.children.length > 0) {
       setCardWidth(cardsRef.current.children[0].offsetWidth);
+      updateScrollPosition();
     }
   }, [trendingProducts]);
+
+  const updateScrollPosition = () => {
+    const slider = cardsRef.current;
+    const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+
+    setIsAtStart(slider.scrollLeft === 0);
+    setIsAtEnd(slider.scrollLeft >= maxScrollLeft);
+  };
 
   const handleScrollLeft = () => {
     cardsRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
@@ -41,20 +57,26 @@ const Carousel = ({ trendingProducts }) => {
     const slider = cardsRef.current;
     slider.isDown = false;
     slider.classList.remove('dragging');
+    updateScrollPosition();
+  };
+
+  const handleScroll = () => {
+    updateScrollPosition();
   };
 
   return (
     <div className="categories-wrapper">
       <button
-        className="arrow left"
+        className={`arrow ${isAtStart ? 'disabled' : ''}`}
         onClick={handleScrollLeft}
         aria-label="Scroll left"
       >
-        left
+        <i data-feather="chevron-left"></i>
       </button>
       <div
         className="categories-cards"
         ref={cardsRef}
+        onScroll={handleScroll}
         onMouseDown={handleDragStart}
         onMouseLeave={handleDragEnd}
         onMouseUp={handleDragEnd}
@@ -71,11 +93,11 @@ const Carousel = ({ trendingProducts }) => {
         ))}
       </div>
       <button
-        className="arrow right"
+        className={`arrow ${isAtEnd ? 'disabled' : ''}`}
         onClick={handleScrollRight}
         aria-label="Scroll right"
       >
-        right
+        <i data-feather="chevron-right"></i>
       </button>
     </div>
   );

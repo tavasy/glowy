@@ -106,7 +106,7 @@
 
   .card {
     flex-direction: column;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
 
     .image {
       display: flex;
@@ -166,25 +166,51 @@
 }
 
 .arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 50px;
   width: 50px;
-  background-color: white;
-  text-align: center;
-  line-height: 50px;
+  background-color: #ffffff80;
   border-radius: 50%;
   cursor: pointer;
   position: absolute;
   top: 50%;
-  font-size: 1.25rem;
-  transform: translateY(-50%);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: transform 0.1s linear;
+  transform: translateY(-45%);
+  box-shadow: none;
+  border: none;
+  backdrop-filter: blur(2px);
+  opacity: 1;
+  transition: all 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+
+  svg {
+    width: 30px;
+    height: 30px;
+    stroke: #67645e;
+    stroke-width: 2px;
+    opacity: 1;
+    transition: all 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  &:hover {
+    background-color: #67645e;
+  }
+
+  &:hover svg {
+    stroke: white;
+  }
 }
 
-.arrow.left {
+.arrow.disabled,
+.arrow.disabled svg {
+  opacity: 0;
+}
+
+.categories-wrapper .arrow:first-child {
   left: -22px;
 }
-.arrow.right {
+
+.categories-wrapper .arrow:last-child {
   right: -22px;
 }
 
