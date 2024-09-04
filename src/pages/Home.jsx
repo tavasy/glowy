@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
-import CategoryCard from '../components/CategoryCard';
+import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
 import laneige from '../images/laneige.png';
 import amika from '../images/amika.png';
@@ -91,17 +91,7 @@ function Home() {
       </div>
       <div className="container-trending-products">
         <h2>Trending products</h2>
-        <div className="categories-cards">
-          {trendingProducts.map((product, index) => (
-            <CategoryCard
-              key={index}
-              brand={product.brand}
-              title={product.title}
-              image={product.image}
-              link={product.link}
-            />
-          ))}
-        </div>
+        <Carousel trendingProducts={trendingProducts} />
       </div>
       <Footer />
     </div>
