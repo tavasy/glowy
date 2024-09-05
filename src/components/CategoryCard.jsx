@@ -1,11 +1,16 @@
 import React from 'react';
 
-const CategoryCard = ({ brand, title, image, link, draggable }) => {
+const CategoryCard = ({ brand, title, image, link }) => {
   return (
     <div className="card">
       <div className="image">
         <div className="image-wrapper">
-          <img src={image} alt={title} className="image-product" />
+          <img
+            src={image}
+            alt={title}
+            className="image-product"
+            loading="lazy"
+          />
         </div>
       </div>
       <p className="brand">{brand}</p>

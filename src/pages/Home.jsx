@@ -1,61 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
-import laneige from '../images/laneige.png';
-import amika from '../images/amika.png';
-import colorwow from '../images/colorwow.png';
-import cosrx from '../images/cosrx.png';
-import keys from '../images/keys.png';
-import nars from '../images/nars.png';
-import olaplex from '../images/olaplex.png';
 import Marquee from '../components/Marquee';
 
 function Home() {
-  const [trendingProducts] = useState([
-    {
-      brand: 'NARS',
-      title: 'Powder Blush',
-      image: nars,
-      link: 'https://www.narscosmetics.com',
-    },
-    {
-      brand: 'Amika',
-      title: 'Perk Up Dry Shampoo',
-      image: amika,
-      link: 'https://www.loveamika.com',
-    },
-    {
-      brand: 'Color Wow',
-      title: 'Dream Coat Anti-Humidity Hair Spray',
-      image: colorwow,
-      link: 'https://www.colorwowhair.com',
-    },
-    {
-      brand: 'Cosrx',
-      title: 'Snail Mucin 96% Power Repairing Essence',
-      image: cosrx,
-      link: 'https://www.cosrx.com',
-    },
-    {
-      brand: 'Keys Soulcare',
-      title: 'Squalane Facial Oil',
-      image: keys,
-      link: 'https://www.cosrx.com',
-    },
-    {
-      brand: 'Laneige',
-      title: 'Lip Sleeping Mask',
-      image: laneige,
-      link: 'https://www.laneige.com',
-    },
-    {
-      brand: 'Olaplex',
-      title: 'No.7 Bonding Oil',
-      image: olaplex,
-      link: 'https://www.olaplex.com',
-    },
-  ]);
+  const [trendingProducts, setTrendingProducts] = useState([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const response = await fetch(
+          'http://localhost:5050/api/trending-products',
+        );
+        const data = await response.json();
+        setTrendingProducts(data);
+      } catch (error) {
+        console.error('Error fetching trending products:', error);
+      }
+    }
+
+    fetchProducts();
+  }, []);
 
   return (
     <div className="container">
