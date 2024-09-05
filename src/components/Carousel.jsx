@@ -23,8 +23,9 @@ const Carousel = ({ trendingProducts }) => {
     const slider = cardsRef.current;
     const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
 
-    setIsAtStart(slider.scrollLeft === 0);
-    setIsAtEnd(slider.scrollLeft >= maxScrollLeft);
+    const scrollTolerance = 2;
+    setIsAtStart(slider.scrollLeft <= scrollTolerance);
+    setIsAtEnd(slider.scrollLeft >= maxScrollLeft - scrollTolerance);
   };
 
   const handleScrollLeft = () => {

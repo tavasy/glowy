@@ -1,0 +1,42 @@
+@import '../styles/variables';
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #ffe1e5;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.marquee-content {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 15s linear infinite;
+}
+
+.marquee-text {
+  letter-spacing: 0.2px;
+  font-family: $secondary-font;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.2em;
+  color: #584f47;
+
+  svg {
+    margin: 0 1.2em;
+    vertical-align: middle;
+    color: #584f47;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0); // Start position
+  }
+  100% {
+    transform: translateX(-100%); // Move whole content out of view
+  }
+}
