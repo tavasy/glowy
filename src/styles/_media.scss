@@ -1,0 +1,178 @@
+// @media screen and (min-width: 1350px) is default
+
+@media screen and (max-width: 1200px) {
+  .container-options {
+    flex: 1.5 1;
+  }
+  .categories-cards {
+    grid-auto-columns: calc((100% / 3) - 26px);
+  }
+
+  .container-image-text .text-image {
+    max-width: 75%;
+    font-size: 1.7em;
+  }
+
+  .container-options-div {
+    padding-left: 3.5em;
+  }
+
+  .options-buttons button {
+    font-size: 0.93em;
+  }
+
+  .category-name {
+    font-size: 1em;
+  }
+
+  .categories-cards .card .title {
+    font-size: 1.1em;
+  }
+
+  .marquee-text {
+    font-size: 1.15em;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .container-achieve {
+    flex-flow: column-reverse;
+    height: 130lvh;
+  }
+
+  .container-image-text {
+    border-radius: 0.8em 0.8em 0 0;
+  }
+
+  .container-options {
+    padding-top: 1.8em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 1.8em;
+  }
+
+  .container-options-div {
+    padding-left: 1.5em;
+  }
+
+  .categories-cards {
+    grid-auto-columns: calc((100% / 2) - 20px);
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  .marquee-content .marquee-text {
+    font-size: 1.15em;
+  }
+
+  .container-options {
+    display: block;
+    flex: 0;
+  }
+
+  .container-achieve {
+    gap: 0;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .container-achieve {
+    margin-top: 1.7em;
+    height: 140lvh;
+    margin-bottom: 1.3em;
+  }
+
+  .container-trending-products {
+    margin-top: 0;
+    margin-bottom: 2.5em;
+    padding-bottom: 0;
+  }
+
+  .container-image-text .text-image {
+    font-size: 1.7em;
+  }
+
+  .categories-cards {
+    grid-auto-columns: 100%;
+  }
+
+  .container-options-div {
+    padding-left: 0;
+  }
+
+  .marquee-content .marquee-text {
+    font-size: 1em;
+  }
+
+  .options-buttons button {
+    font-size: 0.9em;
+  }
+
+  .category-name {
+    font-size: 0.95em;
+  }
+
+  .categories-cards .card .title {
+    font-size: 1em;
+  }
+
+  .categories-cards .card .brand {
+    font-size: 0.85em;
+  }
+
+  .categories-cards .card .buy-button {
+    margin-top: 0.5em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container-achieve {
+    height: 100lvh;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  .category-name {
+    font-size: 0.9em;
+  }
+
+  .options-buttons button {
+    font-size: 0.85em;
+  }
+
+  .container-image-text .text-image {
+    font-size: 1.3em;
+  }
+
+  .marquee-content .marquee-text {
+    font-size: 0.95em;
+  }
+
+  .options-buttons {
+    gap: 0.5em;
+  }
+
+  .container-footer .logo.footer {
+    font-size: 2em;
+  }
+
+  .container-footer .footer-text {
+    font-size: 0.85em;
+  }
+
+  .container-footer {
+    padding: 1.4em 1.8em;
+    padding-top: 3em;
+  }
+}
+
+//container width
+@media (min-width: 900px) {
+  .container {
+    margin: 1.2vw 2.25vw;
+  }
+}
