@@ -330,7 +330,7 @@
 @media screen and (max-width: 992px) {
   .container-achieve {
     flex-flow: column-reverse;
-    height: 100lvh;
+    height: 130lvh;
   }
 
   .container-image-text {
@@ -371,8 +371,20 @@
 }
 
 @media screen and (max-width: 630px) {
+  .container-achieve {
+    margin-top: 1.7em;
+    height: 140lvh;
+    margin-bottom: 1.3em;
+  }
+
+  .container-trending-products {
+    margin-top: 0;
+    margin-bottom: 2.5em;
+    padding-bottom: 0;
+  }
+
   .container-image-text .text-image {
-    font-size: 1.4em;
+    font-size: 1.7em;
   }
 
   .categories-cards {
@@ -409,6 +421,10 @@
 }
 
 @media screen and (max-width: 450px) {
+  .container-achieve {
+    height: 100lvh;
+  }
+
   h2 {
     font-size: 1.6em;
   }
