@@ -2,13 +2,13 @@
 
 body {
   font-family: $main-font;
-  color: $text-color;
-  font-weight: 400;
+  color: $dark-color;
+  font-weight: 500;
   margin: 0;
 }
 
 a {
-  color: $text-color;
+  color: $dark-color;
   text-decoration: none;
 
   &:hover {
@@ -21,14 +21,12 @@ p {
 }
 
 h2 {
-  color: #584f47;
   font-family: $secondary-font;
-  font-weight: 400;
   font-size: 2.5em;
 }
 
 .logo {
-  color: #ffe1e5;
+  color: $primary-color;
   font-family: $logo-font;
   font-weight: 700;
   font-size: 1.2em;

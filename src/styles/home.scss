@@ -3,13 +3,13 @@
 .container-navbar {
   font-size: 1.2em;
   text-align: center;
-  background: #584f47;
+  background: $dark-color;
   padding: 1.1em 1.3em;
   border-radius: 0.8em 0.8em 0 0;
 }
 
 .container-achieve {
-  border-radius: 0.8em;
+  border-radius: $border-radius;
   margin-top: 2.3em;
   margin-bottom: 2em;
   display: flex;
@@ -44,7 +44,7 @@
     bottom: 8%;
     font-size: 1.8em;
     font-weight: 600;
-    color: white;
+    color: $secondary-color;
     max-width: 65%;
     line-height: 1.4em;
   }
@@ -55,7 +55,6 @@
 }
 
 .category-name {
-  color: #584f47;
   margin-bottom: 0.4em;
   font-size: 1.1em;
   font-weight: 700;
@@ -68,6 +67,8 @@
   overflow-x: auto;
   gap: 0.8em;
   margin-bottom: 1.5em;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 
   button {
     font-family: $main-font;
@@ -75,22 +76,19 @@
     font-weight: 600;
     padding: 0.7em 2em;
     text-transform: uppercase;
-    border: 2px solid #584f47;
+    border: 2px solid $dark-color;
     border-radius: 1.5em;
     background: transparent;
     flex: 0 0 auto;
     font-size: 1em;
-    color: #584f47;
+    color: $dark-color;
     transition: all 0.3s ease;
+    scroll-snap-align: start;
 
     &:hover {
-      background-color: #ffe1e5;
+      background-color: $primary-color;
       cursor: pointer;
     }
-  }
-
-  .skin {
-    border: 2px solid #a96666;
   }
 
   &::-webkit-scrollbar {
@@ -100,7 +98,7 @@
 }
 
 .container-trending-products {
-  border-radius: 0.8em;
+  border-radius: $border-radius;
   margin: 2em 0;
   padding-top: 0.3em;
   padding-bottom: 1.5em;
@@ -167,11 +165,9 @@
     }
 
     .brand {
-      font-weight: 500;
-      font-size: $text-size;
+      font-size: 0.9em;
       margin-bottom: 0.3em;
       margin-top: 0.6em;
-      color: #584f47;
       letter-spacing: 0.1px;
     }
 
@@ -186,24 +182,21 @@
       overflow: hidden;
       text-overflow: ellipsis;
       height: 2.5em;
-      color: #584f47;
     }
 
     .buy-button {
       width: 100%;
-      border: 1.5px solid #584f47;
+      border: 1.5px solid $dark-color;
       border-radius: 2em;
       padding: 0.7em;
       text-transform: uppercase;
       background: transparent;
       margin-top: 0.7em;
-      font-weight: 500;
       font-size: 0.9em;
       transition: all 0.3s ease;
-      color: #584f47;
 
       &:hover {
-        background-color: #ffe1e5;
+        background-color: $primary-color;
         cursor: pointer;
       }
     }
@@ -235,14 +228,14 @@
   svg {
     width: 30px;
     height: 30px;
-    stroke: #584f47;
+    stroke: $dark-color;
     stroke-width: 2px;
     opacity: 1;
     transition: all 0.7s cubic-bezier(0.76, 0, 0.24, 1);
   }
 
   &:hover {
-    background-color: #584f47;
+    background-color: $dark-color;
   }
 
   &:hover svg {
@@ -256,15 +249,15 @@
 }
 
 .categories-wrapper .arrow:first-child {
-  left: 10px;
+  left: -10px;
 }
 
 .categories-wrapper .arrow:last-child {
-  right: 10px;
+  right: -10px;
 }
 
 .container-footer {
-  background: #584f47;
+  background: $dark-color;
   padding: 1.4em 2.4em;
   padding-top: 3.4em;
   border-radius: 0.8em;
@@ -273,19 +266,18 @@
   .logo.footer {
     align-content: end;
     font-size: 2.5em;
-    color: #ffe1e5;
+    color: $primary-color;
     margin-bottom: 0;
     flex: 1;
   }
 
   .footer-text {
     color: white;
-    font-size: $text-size;
+    font-size: 0.9em;
     margin-bottom: 0.5em;
     flex: 1;
     text-align: end;
     align-content: end;
-    font-weight: 500;
   }
 }
 
@@ -293,20 +285,164 @@
   display: none;
 }
 
-@media screen and (max-width: 900px) {
-  .categories-cards {
-    grid-auto-columns: calc((100% / 2) - 9px);
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .categories-cards {
-    grid-auto-columns: 100%;
-  }
-}
-
 @media (min-width: 900px) {
   .container {
     margin: 1.2vw 2.25vw;
+  }
+}
+
+// @media screen and (min-width: 1350px) is default
+
+@media screen and (max-width: 1200px) {
+  .container-options {
+    flex: 1.5 1;
+  }
+  .categories-cards {
+    grid-auto-columns: calc((100% / 3) - 26px);
+  }
+
+  .container-image-text .text-image {
+    max-width: 75%;
+    font-size: 1.7em;
+  }
+
+  .container-options-div {
+    padding-left: 3.5em;
+  }
+
+  .options-buttons button {
+    font-size: 0.93em;
+  }
+
+  .category-name {
+    font-size: 1em;
+  }
+
+  .categories-cards .card .title {
+    font-size: 1.1em;
+  }
+
+  .marquee-text {
+    font-size: 1.15em;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .container-achieve {
+    flex-flow: column-reverse;
+    height: 100lvh;
+  }
+
+  .container-image-text {
+    border-radius: 0.8em 0.8em 0 0;
+  }
+
+  .container-options {
+    padding-top: 1.8em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 1.8em;
+  }
+
+  .container-options-div {
+    padding-left: 1.5em;
+  }
+
+  .categories-cards {
+    grid-auto-columns: calc((100% / 2) - 20px);
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  .marquee-content .marquee-text {
+    font-size: 1.15em;
+  }
+
+  .container-options {
+    display: block;
+    flex: 0;
+  }
+
+  .container-achieve {
+    gap: 0;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .container-image-text .text-image {
+    font-size: 1.4em;
+  }
+
+  .categories-cards {
+    grid-auto-columns: 100%;
+  }
+
+  .container-options-div {
+    padding-left: 0;
+  }
+
+  .marquee-content .marquee-text {
+    font-size: 1em;
+  }
+
+  .options-buttons button {
+    font-size: 0.9em;
+  }
+
+  .category-name {
+    font-size: 0.95em;
+  }
+
+  .categories-cards .card .title {
+    font-size: 1em;
+  }
+
+  .categories-cards .card .brand {
+    font-size: 0.85em;
+  }
+
+  .categories-cards .card .buy-button {
+    margin-top: 0.5em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  h2 {
+    font-size: 1.6em;
+  }
+
+  .category-name {
+    font-size: 0.9em;
+  }
+
+  .options-buttons button {
+    font-size: 0.85em;
+  }
+
+  .container-image-text .text-image {
+    font-size: 1.3em;
+  }
+
+  .marquee-content .marquee-text {
+    font-size: 0.95em;
+  }
+
+  .options-buttons {
+    gap: 0.5em;
+  }
+
+  .container-footer .logo.footer {
+    font-size: 2em;
+  }
+
+  .container-footer .footer-text {
+    font-size: 0.85em;
+  }
+
+  .container-footer {
+    padding: 1.4em 1.8em;
+    padding-top: 3em;
   }
 }

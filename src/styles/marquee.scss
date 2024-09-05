@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  background: #ffe1e5;
+  background: $primary-color;
   padding-top: 1em;
   padding-bottom: 1em;
 }
@@ -14,7 +14,7 @@
 .marquee-content {
   display: flex;
   white-space: nowrap;
-  animation: marquee 15s linear infinite;
+  animation: marquee 20s linear infinite;
 }
 
 .marquee-text {
@@ -23,20 +23,18 @@
   display: inline-flex;
   align-items: center;
   font-size: 1.2em;
-  color: #584f47;
 
   svg {
     margin: 0 1.2em;
     vertical-align: middle;
-    color: #584f47;
   }
 }
 
 @keyframes marquee {
   0% {
-    transform: translateX(0); // Start position
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%); // Move whole content out of view
+    transform: translateX(-100%);
   }
 }
