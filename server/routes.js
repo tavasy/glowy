@@ -1,19 +1,17 @@
-import express from 'express';
-import database from './server';
-
+const express = require('express');
 const router = express.Router();
 
-router.get('/api/trending-products', async (req, res) => {
+router.get('/trending-products', async (req, res) => {
   try {
-    const collection = database.collection('TrendingProducts');
-
-    const products = await collection.find({}).toArray();
-
-    res.json(products);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Error fetching products');
+    const collection = req.db.collection('TrendingProducts');
+    const trendingProducts = await collection.find({}).toArray();
+    res.json(trendingProducts);
+  } catch (error) {
+    console.error('Error fetching trending products:', error);
+    res
+      .status(500)
+      .json({ error: 'An error occurred while fetching trending products.' });
   }
 });
 
-export default router;
+module.exports = router;
