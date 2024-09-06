@@ -36,18 +36,30 @@ function Home() {
             <div className="options-wrapper">
               <p className="category-name">Hair</p>
               <div className="options-buttons">
-                <button>Silky hair</button>
-                <button>Long hair</button>
-                <button>Blonde hair</button>
+                <a href={'/products'} rel="noopener noreferrer">
+                  <button>Silky hair</button>
+                </a>
+                <a href={'/products'} rel="noopener noreferrer">
+                  <button>Long hair</button>
+                </a>
+                <a href={'/products'} rel="noopener noreferrer">
+                  <button>Blonde hair</button>
+                </a>
               </div>
               <p className="category-name">Skin</p>
               <div className="options-buttons">
-                <button>Clean skin</button>
-                <button>No dark spots</button>
+                <a href={'/products'} rel="noopener noreferrer">
+                  <button>Clean skin</button>
+                </a>
+                <a href={'/products'} rel="noopener noreferrer">
+                  <button>No dark spots</button>
+                </a>
               </div>
               <p className="category-name">Makeup</p>
               <div className="options-buttons">
-                <button>Natural makeup</button>
+                <a href={'/products'} rel="noopener noreferrer">
+                  <button>Natural makeup</button>
+                </a>
               </div>
             </div>
           </div>

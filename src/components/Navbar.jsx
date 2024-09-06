@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 function Navbar() {
   return (
     <div className="container-navbar">
-      <div className="logo">glowy</div>
+      <a href={'/'} rel="noopener noreferrer">
+        <div className="logo">glowy</div>
+      </a>
     </div>
   );
 }

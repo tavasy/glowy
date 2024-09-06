@@ -70,6 +70,10 @@
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 
+  a {
+    flex: 0 0 auto;
+  }
+
   button {
     font-family: $main-font;
     letter-spacing: 0.2px;
@@ -79,7 +83,6 @@
     border: 2px solid $dark-color;
     border-radius: 1.5em;
     background: transparent;
-    flex: 0 0 auto;
     font-size: 1em;
     color: $dark-color;
     transition: all 0.3s ease;
