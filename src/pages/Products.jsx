@@ -2,8 +2,30 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLocation } from 'react-router-dom';
 
 function Products() {
+  const [goalExists, setGoalExists] = useState(true);
+  const location = useLocation();
+
+  // Helper function to get query parameters
+  const getQueryParams = () => {
+    return new URLSearchParams(location.search);
+  };
+
+  // Extract the goal from the URL query parameters
+  const goal = getQueryParams().get('goal');
+
+  // Map goal to human-readable text
+  const goalTextMap = {
+    'silky-hair': 'silky hair',
+    'long-hair': 'long hair',
+    'blonde-hair': 'blonde hair',
+    'clean-skin': 'clean skin',
+    'no-dark-spots': 'no dark spots',
+    'natural-makeup': 'natural makeup',
+  };
+
   const [products, setProducts] = useState([
     {
       brand: 'Olaplex',
@@ -132,28 +154,49 @@ function Products() {
   ]);
 
   // useEffect(() => {
+  //   if (!goal) {
+  //     setGoalExists(false); // Set this to false if no goal is provided
+  //     return;
+  //   }
+
+  //   setGoalExists(true);
+
   //   async function fetchPersonalProducts() {
   //     try {
   //       const response = await fetch(
-  //         'http://localhost:5050/api/personal-products',
+  //         'http://localhost:5050/api/personal-products?goal=${goal}',
   //       );
   //       const data = await response.json();
-  //       setProducts(data.products); // Update to access the 'products' array
+  //       setProducts(data.products);
   //     } catch (error) {
   //       console.error('Error fetching personal products:', error);
   //     }
   //   }
 
   //   fetchPersonalProducts();
-  // }, []);
+  // }, [goal]);
+
+  // if (!goalExists) {
+  //   return (
+  //     <div className="container">
+  //       <Navbar />
+  //       <div className="container-top-text">
+  //         <h2>Please choose a goal</h2>
+  //       </div>
+  //       <Footer />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="container">
       <Navbar />
       <div className="container-top-text">
-        <h2>
-          Best trending products for
-          <span className="goal-text">&nbsp;silky hair</span>
+        <h2 className="text-products-image">
+          Best&nbsp;
+          <span className="goal-text">trending</span>
+          &nbsp;products for
+          <span className="goal-text">&nbsp;{goalTextMap[goal]}</span>
         </h2>
       </div>
       <div className="container-personal-products">

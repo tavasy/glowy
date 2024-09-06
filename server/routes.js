@@ -16,7 +16,8 @@ router.get('/trending-products', async (req, res) => {
 
 router.get('/personal-products', async (req, res) => {
   try {
-    const prompt = 'List 10 popular beauty products for silky hair.';
+    const goal = req.query.goal;
+    const prompt = `List 10 popular beauty products for ${goal}.`;
 
     const response = await req.openai.chat.completions.create({
       model: 'gpt-3.5-turbo',

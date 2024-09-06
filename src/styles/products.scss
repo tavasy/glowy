@@ -1,7 +1,23 @@
 @import '../styles/variables';
 
 .container-top-text {
-  margin-top: 3em;
+  // margin-top: 2em;
+  background-image: url('../images/hair4.webp');
+  height: 40lvh;
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+  background-position-x: left;
+  border-radius: 0 0 0.8em 0.8em;
+  align-content: center;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.text-products-image {
+  font-family: $main-font;
+  color: $secondary-color;
+  font-weight: 500;
 }
 
 .container-personal-products {
@@ -13,7 +29,8 @@
 }
 
 .goal-text {
-  color: $primary-color;
+  // color: $primary-color;
+  text-transform: uppercase;
 }
 
 .product-cards {
@@ -114,7 +131,7 @@
   .key-benefits {
     flex: 0 0 auto;
     scroll-snap-align: start;
-    background: $primary-color;
+    background: $secondary-color;
     border-radius: 2em;
     padding: 0.5em 1em;
     font-size: 0.9em;
@@ -183,4 +200,5 @@
 .arrow-products.disabled,
 .arrow-products.disabled svg {
   opacity: 0;
+  pointer-events: none;
 }

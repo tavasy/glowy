@@ -4,7 +4,7 @@ import feather from 'feather-icons';
 const ProductCard = ({ brand, title, description, keyBenefits, link }) => {
   const keyBenefitsRef = useRef(null);
   const [isAtStart, setIsAtStart] = useState(true);
-  const [isAtEnd, setIsAtEnd] = useState(false);
+  const [isAtEnd, setIsAtEnd] = useState(true);
 
   useEffect(() => {
     feather.replace();
