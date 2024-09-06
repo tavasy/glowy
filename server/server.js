@@ -3,11 +3,16 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const routes = require('./routes');
 const cors = require('cors');
+const OpenAIApi = require('openai');
 
 const app = express();
 const port = process.env.PORT || 5050;
 
 const mongoURI = process.env.MONGODB_KEY;
+
+const openai = new OpenAIApi({
+  apiKey: process.env.OPENAI_KEY,
+});
 
 app.use(cors());
 
@@ -23,6 +28,7 @@ MongoClient.connect(mongoURI, {
     // Middleware to add DB to req
     app.use((req, res, next) => {
       req.db = db;
+      req.openai = openai;
       next();
     });
 

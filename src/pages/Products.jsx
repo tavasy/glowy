@@ -3,13 +3,21 @@ import React, { useState, useEffect } from 'react';
 function Products() {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    // Fetch the personal products from the API
-    fetch('http://localhost:5050/api/personal-products')
-      .then((response) => response.json())
-      .then((data) => setProducts(data.products))
-      .catch((error) => console.error('Error fetching products:', error));
-  }, []);
+  // useEffect(() => {
+  //   async function fetchPersonalProducts() {
+  //     try {
+  //       const response = await fetch(
+  //         'http://localhost:5050/api/personal-products',
+  //       );
+  //       const data = await response.json();
+  //       setProducts(data.products); // Update to access the 'products' array
+  //     } catch (error) {
+  //       console.error('Error fetching personal products:', error);
+  //     }
+  //   }
+
+  //   fetchPersonalProducts();
+  // }, []);
 
   return (
     <div>
