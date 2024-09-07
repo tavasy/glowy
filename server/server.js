@@ -5,7 +5,12 @@ const routes = require('./routes');
 const cors = require('cors');
 const OpenAIApi = require('openai');
 
+const corsOptions = {
+  origin: 'http://localhost:3000', // frontend URI (ReactJS)
+};
+
 const app = express();
+app.use(cors(corsOptions));
 const port = process.env.PORT || 5050;
 
 const mongoURI = process.env.MONGODB_KEY;
@@ -13,8 +18,6 @@ const mongoURI = process.env.MONGODB_KEY;
 const openai = new OpenAIApi({
   apiKey: process.env.OPENAI_KEY,
 });
-
-app.use(cors());
 
 let db;
 MongoClient.connect(mongoURI, {
