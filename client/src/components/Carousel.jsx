@@ -29,11 +29,19 @@ const Carousel = ({ trendingProducts }) => {
   };
 
   const handleScrollLeft = () => {
-    cardsRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    const slider = cardsRef.current;
+    const newScrollPosition = Math.max(0, slider.scrollLeft - cardWidth);
+    slider.scrollTo({ left: newScrollPosition, behavior: 'smooth' });
   };
 
   const handleScrollRight = () => {
-    cardsRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    const slider = cardsRef.current;
+    const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+    const newScrollPosition = Math.min(
+      maxScrollLeft,
+      slider.scrollLeft + cardWidth,
+    );
+    slider.scrollTo({ left: newScrollPosition, behavior: 'smooth' });
   };
 
   const handleDragStart = (e) => {
@@ -72,10 +80,6 @@ const Carousel = ({ trendingProducts }) => {
 
   const handleTouchMove = (e) => {
     if (!cardsRef.current.isDown) return;
-    const touch = e.touches[0];
-    const x = touch.pageX - cardsRef.current.offsetLeft;
-    const walk = (x - cardsRef.current.startX) * 1.5;
-    cardsRef.current.scrollLeft -= walk;
   };
 
   const handleTouchEnd = () => {
