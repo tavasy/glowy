@@ -61,6 +61,29 @@ const Carousel = ({ trendingProducts }) => {
     updateScrollPosition();
   };
 
+  const handleTouchStart = (e) => {
+    const touch = e.touches[0];
+    const slider = cardsRef.current;
+    slider.isDown = true;
+    slider.startX = touch.pageX - slider.offsetLeft;
+    slider.scrollLeft = slider.scrollLeft;
+    slider.classList.add('dragging');
+  };
+
+  const handleTouchMove = (e) => {
+    if (!cardsRef.current.isDown) return;
+    const touch = e.touches[0];
+    const x = touch.pageX - cardsRef.current.offsetLeft;
+    const walk = (x - cardsRef.current.startX) * 1.5;
+    cardsRef.current.scrollLeft -= walk;
+  };
+
+  const handleTouchEnd = () => {
+    cardsRef.current.isDown = false;
+    cardsRef.current.classList.remove('dragging');
+    updateScrollPosition();
+  };
+
   const handleScroll = () => {
     updateScrollPosition();
   };
@@ -82,6 +105,9 @@ const Carousel = ({ trendingProducts }) => {
         onMouseLeave={handleDragEnd}
         onMouseUp={handleDragEnd}
         onMouseMove={handleDragMove}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {trendingProducts.map((product, index) => (
           <CategoryCard

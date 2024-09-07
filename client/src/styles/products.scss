@@ -1,7 +1,6 @@
 @import '../styles/variables';
 
 .container-top-text {
-  // margin-top: 2em;
   background-image: url('../images/hair4.webp');
   height: 40lvh;
   background-repeat: none;
@@ -11,8 +10,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2em;
   text-align: center;
+  margin-bottom: 2em;
 }
 
 .text-products-image {
@@ -26,13 +25,29 @@
   background: $secondary-color;
   padding: 30px;
   border-radius: 0.8em;
-  margin-top: 1em;
-  margin-bottom: 2.5em;
+  margin-bottom: 2em;
 }
 
 .goal-text {
   // color: $primary-color;
   text-transform: uppercase;
+}
+
+.container-options-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+button.active {
+  background: $dark-color;
+  color: $secondary-color;
+
+  &:hover {
+    background: $dark-color;
+    color: $secondary-color;
+  }
 }
 
 .product-cards {
@@ -102,6 +117,7 @@
     }
 
     .buy-button {
+      color: $dark-color;
       font-family: $main-font;
       width: 100%;
       border: 1.5px solid $dark-color;
@@ -145,7 +161,8 @@
   }
 }
 
-.container-key-benefits::-webkit-scrollbar {
+.container-key-benefits::-webkit-scrollbar,
+.container-options-line::-webkit-scrollbar {
   display: none;
 }
 
@@ -204,8 +221,23 @@
   }
 }
 
+.options-buttons-line-wrapper .arrow-products {
+  height: 45px;
+  width: 45px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
 .arrow-products.disabled,
 .arrow-products.disabled svg {
   opacity: 0;
   pointer-events: none;
+}
+
+.options-buttons-line-wrapper {
+  position: relative;
+  overflow: hidden;
 }

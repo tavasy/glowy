@@ -7,12 +7,15 @@ import Marquee from '../components/Marquee';
 function Home() {
   const [trendingProducts, setTrendingProducts] = useState([]);
 
+  const apiBaseUrl =
+    window.location.hostname === 'localhost'
+      ? 'http://localhost:5050'
+      : 'https://glowy-gm9s.onrender.com';
+
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch(
-          'https://glowy-gm9s.onrender.com/api/trending-products',
-        );
+        const response = await fetch(`${apiBaseUrl}/api/trending-products`);
         const data = await response.json();
         setTrendingProducts(data);
       } catch (error) {
@@ -52,7 +55,7 @@ function Home() {
               <p className="category-name">Skin</p>
               <div className="options-buttons">
                 <a href={'/products?goal=clear-skin'} rel="noopener noreferrer">
-                  <button>Clean skin</button>
+                  <button>Clear skin</button>
                 </a>
                 <a
                   href={'/products?goal=no-dark-spots'}

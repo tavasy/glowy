@@ -3,6 +3,7 @@ import ProductCard from '../components/ProductCard';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useLocation } from 'react-router-dom';
+import ProductsLine from '../components/ProductsLine';
 
 function Products() {
   const [goalExists, setGoalExists] = useState(true);
@@ -21,7 +22,7 @@ function Products() {
     'silky-hair': 'silky hair',
     'long-hair': 'long hair',
     'blonde-hair': 'blonde hair',
-    'clean-skin': 'clean skin',
+    'clear-skin': 'clear skin',
     'no-dark-spots': 'no dark spots',
     'natural-makeup': 'natural makeup',
   };
@@ -198,6 +199,9 @@ function Products() {
           &nbsp;products for
           <span className="goal-text">&nbsp;{goalTextMap[goal]}</span>
         </h2>
+      </div>
+      <div className="container-options-line">
+        <ProductsLine />
       </div>
       <div className="container-personal-products">
         <div className="product-cards">
