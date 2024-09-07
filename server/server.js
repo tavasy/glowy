@@ -11,7 +11,7 @@ const corsOptions = {
 
 const app = express();
 app.use(cors(corsOptions));
-const port = process.env.PORT || 5050;
+const port = process.env.PORT || 8000;
 
 const mongoURI = process.env.MONGODB_KEY;
 
