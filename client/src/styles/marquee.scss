@@ -1,0 +1,40 @@
+@import '../styles/variables';
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: $primary-color;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.marquee-content {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-text {
+  letter-spacing: 0.2px;
+  font-family: $secondary-font;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.2em;
+
+  svg {
+    margin: 0 1.2em;
+    vertical-align: middle;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

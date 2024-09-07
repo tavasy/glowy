@@ -1,0 +1,14 @@
+{
+  "name": "glowy-server",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0",
+    "cors": "^2.8.5",
+    "openai": "^4.58.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
