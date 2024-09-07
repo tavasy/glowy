@@ -7,17 +7,19 @@
   background-repeat: none;
   background-size: cover;
   background-position: center;
-  background-position-x: left;
   border-radius: 0 0 0.8em 0.8em;
-  align-content: center;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 2em;
+  text-align: center;
 }
 
 .text-products-image {
   font-family: $main-font;
   color: $secondary-color;
   font-weight: 500;
+  line-height: 1.4em;
 }
 
 .container-personal-products {
@@ -34,14 +36,18 @@
 }
 
 .product-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
 
   .card {
     background: white;
     border-radius: 0.8em;
     padding: 1.5em;
+    box-sizing: border-box;
+    flex: 1 1 calc((100% / 3) - 30px);
+    max-width: calc((100% / 3) - 30px);
 
     .image {
       display: flex;
@@ -96,6 +102,7 @@
     }
 
     .buy-button {
+      font-family: $main-font;
       width: 100%;
       border: 1.5px solid $dark-color;
       border-radius: 2em;

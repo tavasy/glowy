@@ -8,8 +8,9 @@
     grid-auto-columns: calc((100% / 3) - 26px);
   }
 
-  .container-personal-products .product-cards {
-    grid-template-columns: repeat(2, 1fr);
+  .container .product-cards .card {
+    flex: 1 1 calc((100% / 2) - 15px);
+    max-width: calc((100% / 2) - 15px);
   }
 
   .container-image-text .text-image {
@@ -29,7 +30,8 @@
     font-size: 1em;
   }
 
-  .categories-cards .card .title {
+  .categories-cards .card .title,
+  .container .product-cards .card .title {
     font-size: 1.1em;
   }
 
@@ -39,6 +41,10 @@
 }
 
 @media screen and (max-width: 992px) {
+  .text-products-image {
+    max-width: 80%;
+  }
+
   .container-achieve {
     flex-flow: column-reverse;
     height: 130lvh;
@@ -63,10 +69,6 @@
     grid-auto-columns: calc((100% / 2) - 20px);
   }
 
-  .container-personal-products .product-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   h2 {
     font-size: 2em;
   }
@@ -86,6 +88,10 @@
 }
 
 @media screen and (max-width: 630px) {
+  .container .container-personal-products {
+    padding: 20px;
+  }
+
   .container-achieve {
     margin-top: 1.7em;
     height: 140lvh;
@@ -106,10 +112,6 @@
     grid-auto-columns: 100%;
   }
 
-  .container-personal-products .product-cards {
-    grid-template-columns: 1fr;
-  }
-
   .container-options-div {
     padding-left: 0;
   }
@@ -126,20 +128,35 @@
     font-size: 0.95em;
   }
 
-  .categories-cards .card .title {
+  .categories-cards .card .title,
+  .container .product-cards .card .title {
     font-size: 1em;
   }
 
-  .categories-cards .card .brand {
+  .categories-cards .card .brand,
+  .container .product-cards .card .brand {
     font-size: 0.85em;
+  }
+
+  .container .product-cards .card .description {
+    font-size: 0.9em;
   }
 
   .categories-cards .card .buy-button {
     margin-top: 0.5em;
   }
+
+  .container .product-cards .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 450px) {
+  .text-products-image {
+    font-size: 1.2em;
+  }
+
   .container-achieve {
     height: 100lvh;
   }
@@ -179,12 +196,5 @@
   .container-footer {
     padding: 1.4em 1.8em;
     padding-top: 3em;
-  }
-}
-
-//container width
-@media (min-width: 900px) {
-  .container {
-    margin: 1.2vw 2.25vw;
   }
 }
