@@ -11,7 +11,7 @@ function Home() {
     async function fetchProducts() {
       try {
         const response = await fetch(
-          'http://localhost:5050/api/trending-products',
+          'https://glowy-gm9s.onrender.com/api/trending-products',
         );
         const data = await response.json();
         setTrendingProducts(data);
