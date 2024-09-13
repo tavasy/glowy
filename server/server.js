@@ -6,10 +6,9 @@ const cors = require('cors');
 const OpenAIApi = require('openai');
 
 const corsOptions = {
-  origin:
-    process.env.NODE_ENV === 'production'
-      ? 'https://glowy-client.onrender.com'
-      : 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'https://glowy-client.onrender.com'],
+  credentials: true,
+  optionsSuccessStatus: 200,
 };
 
 const app = express();

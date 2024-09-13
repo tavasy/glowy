@@ -14,6 +14,11 @@ function Products() {
   const location = useLocation();
   const hasFetched = useRef(false);
 
+  const apiBaseUrl =
+    window.location.hostname === 'localhost'
+      ? 'http://localhost:5050'
+      : 'https://glowy-gm9s.onrender.com';
+
   const getQueryParams = () => {
     return new URLSearchParams(location.search);
   };
@@ -51,7 +56,7 @@ function Products() {
       setError(null);
       try {
         const response = await fetch(
-          `http://localhost:5050/api/personal-products?goal=${goal}`,
+          `${apiBaseUrl}/api/personal-products?goal=${goal}`,
         );
         if (!response.ok) {
           throw new Error('Failed to fetch products from server');
