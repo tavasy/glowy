@@ -16,7 +16,7 @@ const CategoryCard = ({ brand, title, image, link }) => {
       <p className="brand">{brand}</p>
       <p className="title">{title}</p>
       <a href={link} target="_blank" rel="noopener noreferrer">
-        <button className="buy-button">Buy</button>
+        <button className="buy-button">See more</button>
       </a>
     </div>
   );

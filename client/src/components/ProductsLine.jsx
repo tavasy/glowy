@@ -24,14 +24,12 @@ const ProductsLine = () => {
     }
   };
 
-  // Scroll left
   const handleScrollLeft = () => {
     if (optionsButtonsRef.current) {
       optionsButtonsRef.current.scrollBy({ left: -100, behavior: 'smooth' });
     }
   };
 
-  // Scroll right
   const handleScrollRight = () => {
     if (optionsButtonsRef.current) {
       optionsButtonsRef.current.scrollBy({ left: 100, behavior: 'smooth' });
@@ -41,7 +39,7 @@ const ProductsLine = () => {
   useEffect(() => {
     const optionsButtonsElement = optionsButtonsRef.current;
     if (optionsButtonsElement) {
-      checkScrollPosition(); // Initial check
+      checkScrollPosition();
       optionsButtonsElement.addEventListener('scroll', checkScrollPosition);
     }
 
@@ -63,7 +61,6 @@ const ProductsLine = () => {
       const { left: containerLeft, right: containerRight } =
         optionsButtonsRef.current.getBoundingClientRect();
 
-      // Check if the button is not fully visible in the viewport
       if (buttonLeft < containerLeft || buttonRight > containerRight) {
         const offset =
           buttonLeft -
@@ -100,20 +97,6 @@ const ProductsLine = () => {
             }
           >
             Silky hair
-          </button>
-        </a>
-        <a href={'/products?goal=long-hair'} rel="noopener noreferrer">
-          <button
-            ref={
-              currentPath === '/products?goal=long-hair'
-                ? activeButtonRef
-                : null
-            }
-            className={
-              currentPath === '/products?goal=long-hair' ? 'active' : ''
-            }
-          >
-            Long hair
           </button>
         </a>
         <a href={'/products?goal=blonde-hair'} rel="noopener noreferrer">
